@@ -1,0 +1,11 @@
+---
+transmission_block_list_enabled: 'false'
+transmission_block_list_url: ''
+transmission_incomplete_download_enabled: 'false'
+transmission_incomplete_download_folder: '/var/transmission/Downloads'
+transmission_download_folder: '/var/transmission/Downloads'
+transmission_peer_port: 55413
+transmission_rpc_white_list: '127.0.0.1'
+transmission_rpc_white_list_enabled: 'true'
+transmission_rpc_enabled: 'true'
+transmission_service_name: 'transmission'

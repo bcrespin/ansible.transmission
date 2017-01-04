@@ -1,0 +1,6 @@
+---
+- name: install (OpenBSD)
+  openbsd_pkg: name={{ transmission_pkg }} state=present
+  when:
+    ansible_os_family == 'OpenBSD'
+

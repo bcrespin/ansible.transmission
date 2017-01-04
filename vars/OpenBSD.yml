@@ -1,0 +1,7 @@
+---
+__transmission_pkg: 'transmission--'
+transmission_user: '_transmission'
+transmission_group: '_transmission'
+transmission_config_folder: '/var/transmission/.config/transmission-daemon'
+transmission_config_file: 'settings.json'
+transmission_service_name: 'transmission_daemon'

@@ -1,0 +1,36 @@
+---
+- name: create transmission config folder
+  file: name={{ transmission_config_folder }} owner={{ transmission_user }} group={{ transmission_group }} state=directory
+
+- name: create transmission download folder
+  file: name={{ transmission_download_folder }} owner={{ transmission_user }} group={{ transmission_group }} state=directory
+
+- name: create transmission incomplete download folder
+  file: name={{ transmission_incomplete_download_folder }} owner={{ transmission_user }} group={{ transmission_group }} state=directory
+  when: 
+    - transmission_incomplete_download_enabled
+
+- name: transmission config temp
+  template: src=settings.json.j2 dest={{ transmission_config_folder }}/{{ transmission_config_file }} owner={{ transmission_user }} group={{ transmission_group }} 
+  register: result
+
+#- name: check new and old conf
+#  shell: diff {{ transmission_config_folder }}/{{ transmission_config_file }}.ansible {{ transmission_config_folder }}/{{ transmission_config_file }}
+#  register: result
+#  ignore_errors: true
+#  changed_when: false
+
+- name: stop service due to config change
+  service: name={{ transmission_service_name }} state=stopped enabled=yes
+  when : result.changed
+ 
+- name: tranmission config 
+  template: src=settings.json.j2 dest={{ transmission_config_folder }}/{{ transmission_config_file }} owner={{ transmission_user }} group={{ transmission_group }}
+  when : result.changed
+
+- name: start service after config change
+  service: name={{ transmission_service_name }} state=started enabled=yes
+  when : result.changed
+
+- name: start service
+  service: name={{ transmission_service_name }} state=started enabled=yes
