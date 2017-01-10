@@ -37,11 +37,13 @@ if transmission_rpc_white_list_enabled is true, transmission_rpc_white_list is a
 - transmission_rpc_white_list: '127.0.0.1'
 - transmission_rpc_white_list_enabled: 'true'
 
-if transmission_rpc_authentication_required is true, you will need to use the login and password SHA1 encryoped ( you can use http://www.sha1-online.com/ to generate it) :
+if transmission_rpc_authentication_required is true, you will need to use the login and password
+format is '{+SHA1 encrypted with salt + salt'  
+you can use http://www.lorem-ipsum.co.uk/hasher.php to generate it :
 - transmission_rpc_username: 'theboss'
-- transmission_rpc_password: '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8'
+- transmission_rpc_password: '{d209a21d3bc4f8fc4f8faf347e69f3def597eb170pySy4ai1ZPMjeU1'
 - transmission_rpc_authentication_required: 'true'
-
+password is : test
 this is the service name used to manage to service for the OS
 it should be setup by role depending of OS/linux distrib 
 - transmission_service_name
