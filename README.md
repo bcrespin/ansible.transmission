@@ -61,6 +61,7 @@ Example Playbook
          - { role: ansible.transmission }
          
 please note that tag : 'transmission' is used by role
+
 note that to apply configuration, the transmission process is stopped,, then started... so think when to apply a change :)
 
 License
