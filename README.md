@@ -14,6 +14,8 @@ Role Variables
 for now, few transmissions variables are configurable, feel free to edit defaults/main.yml & template/settings.json.j2
 as I made this role quickly for my meet...
 
+please quote ALL variables, especially 'true' 'false' that muste be lowercase, to ensure configuration file is not corrected by daemon 
+
 if transmission_block_list_enable is true, feed transmission_block_list_url with something...
 this is to have a filter list of ip in the apps, some fellow guys provide that, example: http://john.bitsurge.net/public/biglist.p2p.gz
 - transmission_block_list_enabled: 'false'
